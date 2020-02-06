@@ -1,32 +1,29 @@
+// Programmer name: Matthew Davenport
+// Date completed:  2/6/20
+// Description: This program will as the user for their name and age
+              //then display back a welcome message of their name, age and
+              //my favorite food.
 package main
 
-import "fmt"
+import "fmt" 
 
 func main() {
+    //declare variable for favorite food and store your favorite food.
+    var favFood string = "Macaroni and Cheese"
 
-  // Population
-  var currentPop = 329252070.0
-  var secPerYear = 31536000.0
-  var birthPerSecond = 1.0 / 9.0
-  var deathPerSecond = 1.0 / 11.0
-  var immPerSecond = 1.0 / 44.0
+    //declare variables for name and age (make sure they are appropriate data types)
+    var name string
+    var age int
 
-  var birthPerYear = birthPerSecond * secPerYear
-  var deathPerYear = deathPerSecond * secPerYear
-  var immPerYear = immPerSecond * secPerYear
+    //ask the user to enter their answer for name and age.
+    fmt.Println("Please enter your name")
+    fmt.Scanln(&name)
+    fmt.Println("Please enter your age")
+    fmt.Scanln(&age)
 
-  var nextYear = (currentPop + birthPerYear + immPerYear) - deathPerYear
-  var tenYears = nextYear * 10.0
+    //output a welcome statement using their name
+    fmt.Println("Welcome ", name, "!")
 
-  fmt.Println("The population in the next 10 years will reach", tenYears)
-
-
-  // Today
-  var day = "Tuesday"
-  var month = "February"
-  var date = 4
-  var year = 2020
-
-  fmt.Println("Todays date is",day,",",month,date,",",year)
-
+    //output a statement that says At their age you enjoyed the favorite food
+    fmt.Println("At ", age, "years old, my favorite food was ", favFood)
 }
