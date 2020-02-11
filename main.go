@@ -1,29 +1,22 @@
-// Programmer name: Matthew Davenport
-// Date completed:  2/6/20
-// Description: This program will as the user for their name and age
-              //then display back a welcome message of their name, age and
-              //my favorite food.
 package main
 
-import "fmt" 
+import "fmt"
 
 func main() {
-    //declare variable for favorite food and store your favorite food.
-    var favFood string = "Macaroni and Cheese"
+  var input float64
+  fmt.Println("What is the distance in Rods?")
+  fmt.Scanln(&input)
 
-    //declare variables for name and age (make sure they are appropriate data types)
-    var name string
-    var age int
+  var feet = input * 17.0
+  fmt.Println("Distance in feet is", feet)
 
-    //ask the user to enter their answer for name and age.
-    fmt.Println("Please enter your name")
-    fmt.Scanln(&name)
-    fmt.Println("Please enter your age")
-    fmt.Scanln(&age)
+  var meters = feet / 3.281
+  fmt.Println("Distance in meters is", meters)
 
-    //output a welcome statement using their name
-    fmt.Println("Welcome ", name, "!")
+  var miles = feet / 5280.0
+  fmt.Println("Distance in miles is", miles)
 
-    //output a statement that says At their age you enjoyed the favorite food
-    fmt.Println("At ", age, "years old, my favorite food was ", favFood)
+  var totalTime = miles/ 3.1
+  fmt.Println("Total time to travel is", totalTime, "hours")
+
 }
