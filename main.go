@@ -1,22 +1,27 @@
+// Programmer Name: Matthew Davenport
+// Date Created: 2/13/20
+// Program Description: Ask user for temp in Celsius, convert to Fahrenheit and Kelvin
+//                      then display back all values.
+
 package main
 
 import "fmt"
 
 func main() {
-  var input float64
-  fmt.Println("What is the distance in Rods?")
-  fmt.Scanln(&input)
+  // ask for input
+    fmt.Println("Please enter your temperature in Celsius")
+    var celsius float64
+    fmt.Scanln(&celsius)
 
-  var feet = input * 17.0
-  fmt.Println("Distance in feet is", feet)
+  // convert input to F
+    var fahrenheit float64 = (celsius * (9.0/5.0)) + 32
 
-  var meters = feet / 3.281
-  fmt.Println("Distance in meters is", meters)
+  // convert input to K
+    var kelvin float64 = celsius + 273.15
 
-  var miles = feet / 5280.0
-  fmt.Println("Distance in miles is", miles)
-
-  var totalTime = miles/ 3.1
-  fmt.Println("Total time to travel is", totalTime, "hours")
+  // display back user input and conversions
+    fmt.Println("Your temperature in Celsius is", celsius)
+    fmt.Println("Your temperature in Fahrenheit is", fahrenheit)
+    fmt.Println("Your temperature in Kelvin is", kelvin)
 
 }
