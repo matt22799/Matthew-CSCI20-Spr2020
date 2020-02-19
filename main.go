@@ -1,6 +1,7 @@
-// Programmer name: __________
-// Date completed:  __________
-// Description: ___________________________
+// Programmer name: Matthew Davenport
+// Date completed:  2/18/20
+// Description: This program will ask the user for a number then compare it
+//              to the computers guess and decides if the guess was right
 
 package main
 
