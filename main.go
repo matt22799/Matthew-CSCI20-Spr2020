@@ -1,45 +1,51 @@
-// Programmer name: Matthew Davenport
-// Date completed:  2/18/20
-// Description: This program will ask the user for a number then compare it
-//              to the computers guess and decides if the guess was right
-
 package main
 
-import (
-    "fmt"
-    "math/rand"
-    //"time"
-) //adding the ability to do random numbers
+import "fmt"
 
 func main() {
-    //create a variable for count\
-    var count int
+// Average Quiz score
+  var grade float64
+  var arrayPlace int = 0
+  var arrayLength float64 = 0
+  var grades [10] float64
 
-    //ask the user to enter a max range for the guessing game and store that value in variable max.
-    var max int
-    fmt.Println("Please enter a a max range")
-    fmt.Scanln(&max)
-    
-    //this next line creates a random number from 1 to that guess for the computer to know.  You can test this by printing out the variable computerGuess
-    var computerGuess = rand.Intn(max)
+  // collect info from user
+  for grade > -1 {
+    fmt.Println("Please enter a grade score")
+    fmt.Scanln(&grade)
+    grades [arrayPlace] = grade
+    arrayPlace++
+    arrayLength++
+  }
+  //take off one place in array
+  arrayPlace--
+  arrayLength--
 
-    //ask the user to enter a guess for the computer number
-    var userGuess int
-    fmt.Println("Please enter a numerical guess")
-    fmt.Scanln(&userGuess)
+  // find average of all grades in array
+  var total float64 = (grades[0] + grades[1] + grades[2] + grades [3] + grades [4] + grades [5] + grades [6] + grades [7] + grades [8] + grades [9]) / arrayLength
 
-    //create a loop that compares the computerGuess to the userGuess while they are NOT equal go into the loop
-    for userGuess != computerGuess{
-      //increase the count by 1
-      count ++
-      //tell the user that the guessed incorrect
-      fmt.Println("Wrong!")
-      //ask the user to enter a new guess for the computer number
-      fmt.Println("Enter a new guess")
-      fmt.Scan(&userGuess)
-    }   
-    
-    //print out that the user got the answer correctly and how many guesses it took (the count)
-    fmt.Println("Correct! That took you", count, "tries!")
+  // Display total
+  fmt.Println(total)
 
+// Obnoxious Child
+  // collect value
+  var age int
+  fmt.Println("How old is the child?")
+  fmt.Scanln(&age)
+
+  // start loop based on value
+  for i := 0; i < age; i++{
+  fmt.Println("Are we there yet?")
+  }  
+
+// Song Lyrics 
+  // Ask for number of repeats
+  var repeat int
+  fmt.Println("How many times do you want to hear the song?")
+  fmt.Scanln(&repeat)
+
+  // start loop based on value
+  for i := 0; i < repeat; i++{
+  fmt.Println("We all live in a yellow submarine, a yellow submarine, a yellow submarine")
+  }  
 }
