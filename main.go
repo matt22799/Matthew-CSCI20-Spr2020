@@ -1,3 +1,10 @@
+//*****************************************************************************************
+// Name: Matthew Davenport 
+// Date: 2/19/20
+// Description: This program will first find the average of a users grade scores, then 
+//              will display back a message for how old a child is then finally repeat 
+//              song lyrics sa many times as requested
+//*****************************************************************************************
 package main
 
 import "fmt"
@@ -17,7 +24,7 @@ func main() {
     arrayPlace++
     arrayLength++
   }
-  //take off one place in array
+  //take off one place in array to subtract the -1 from array
   arrayPlace--
   arrayLength--
 
