@@ -1,58 +1,40 @@
-//*****************************************************************************************
-// Name: Matthew Davenport 
-// Date: 2/19/20
-// Description: This program will first find the average of a users grade scores, then 
-//              will display back a message for how old a child is then finally repeat 
-//              song lyrics sa many times as requested
-//*****************************************************************************************
+// Programmer name: Matthew Davenport
+// Date completed:  2/25/20
+// Description: 
+
 package main
 
-import "fmt"
+import (
+    "fmt"
+    "math/rand"
+) //adding the ability to do random numbers
 
 func main() {
-// Average Quiz score
-  var grade float64
-  var arrayPlace int = 0
-  var arrayLength float64 = 0
-  var grades [10] float64
+    //create two variables - one for the computer and one for the user
+    var userGuess int
+    //use a random integer value representing the computer's choice in a game of Rock, Scissors, Paper. 1=rock, 2=scissors, 3=paper
+    var computerGuess = rand.Intn(3)
 
-  // collect info from user
-  for grade > -1 {
-    fmt.Println("Please enter a grade score")
-    fmt.Scanln(&grade)
-    grades [arrayPlace] = grade
-    arrayPlace++
-    arrayLength++
-  }
-  //take off one place in array to subtract the -1 from array
-  arrayPlace--
-  arrayLength--
+    //prompt the user for an integer value representing the player's choice
+    fmt.Println("Enter a number 1-3 (1=rock, 2=scissors, 3=paper)")
+    fmt.Scanln(&userGuess)
 
-  // find average of all grades in array
-  var total float64 = (grades[0] + grades[1] + grades[2] + grades [3] + grades [4] + grades [5] + grades [6] + grades [7] + grades [8] + grades [9]) / arrayLength
-
-  // Display total
-  fmt.Println(total)
-
-// Obnoxious Child
-  // collect value
-  var age int
-  fmt.Println("How old is the child?")
-  fmt.Scanln(&age)
-
-  // start loop based on value
-  for i := 0; i < age; i++{
-  fmt.Println("Are we there yet?")
-  }  
-
-// Song Lyrics 
-  // Ask for number of repeats
-  var repeat int
-  fmt.Println("How many times do you want to hear the song?")
-  fmt.Scanln(&repeat)
-
-  // start loop based on value
-  for i := 0; i < repeat; i++{
-  fmt.Println("We all live in a yellow submarine, a yellow submarine, a yellow submarine")
-  }  
+    //Print out the values using the words rock, scissors, paper.  ie. "Computer chose rock and player chose paper"
+    //You will need to use decisions for this
+// computer display back
+    if (computerGuess == 1){
+      fmt.Println("Computer chose rock")
+    } else if (computerGuess == 2){
+      fmt.Println("Computer chose scissors")
+    } else {
+      fmt.Println("Computer chose paper")
+    }
+// player display back
+    if (userGuess == 1){
+      fmt.Println("Player chose rock")
+    } else if (userGuess == 2){
+      fmt.Println("Player chose scissors")
+    } else {
+      fmt.Println("Player chose paper")
+    }
 }
