@@ -1,6 +1,6 @@
 // **********************************************************
 // Programmer name: Matthew Davenport
-// Date completed:  3/8/20
+// Date completed:  3/10/20
 // Description: This program will pit 2 players against each other in a game of Nim
 // **********************************************************
 package main
