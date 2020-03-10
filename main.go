@@ -1,104 +1,57 @@
 // **********************************************************
 // Programmer name: Matthew Davenport
-// Date completed:  3/4/20
-// Description: This program will start by showing a broken
-//              array with the users input, then it will
-//              display an array and calculate the biggest
-//              and smallest number, then finally will Ask
-//              for baseball players and stats, then compare
-//              the stats.
+// Date completed:  3/8/20
+// Description: This program will pit 2 players against each other in a game of Nim
 // **********************************************************
 package main
 
 import "fmt"
 
 func main() {
-// Broken Array
-fmt.Println("Broken Array")
-  // Set an array
-    var array [10] int
-  // Ask for number
-    var num int
-    for i := 1; i <= 9; i++ {
-      fmt.Println("Enter a number")
-      fmt.Scanln(&num)
-      array[i] = num 
+// set a total number of stones
+  var pileOne int = 10
+  var pileTwo int = 6
+  var total = pileOne + pileTwo
+// Set variables for player choices
+  var playerOnePile int
+  var playerTwoPile int
+  var playerOnePull int = 0
+  var playerTwoPull int = 0
+// Start loop to take turns and set win condition
+  for total != 0 {
+    if (total != 0) {
+      fmt.Println("Pile One:", pileOne)
+      fmt.Println("Pile Two:", pileTwo)
+      fmt.Println("Total:", total)
+      fmt.Println("Player 1, choose a pile to pull from")
+      fmt.Scanln(&playerOnePile)
+      fmt.Println("How many do you want to pull?")
+      fmt.Scanln(&playerOnePull)
+      if (playerOnePile == 1) {
+        pileOne = pileOne - playerOnePull
+      } else if (playerOnePile == 2){
+        pileTwo = pileTwo - playerOnePull
+      }
+      total = pileOne + pileTwo
+    } else if (total <= 0){
+      fmt.Println("Player 2 wins!")
     }
-  // Display back
-    fmt.Println(array)
-
-// Max and Min
-fmt.Println("Max and Min")
-	// Set an array of numbers
-	a := [10]int {22,68,45,79,52,58,21,1,5,55}
-	// Calculate min and max
-	var min int = a[0]
-	var max int = a[0]
-
-	for _, v := range a {
-		if v < min {
-		min = v
-		}
-		if v > max {
-		max = v
-		}
-	}
-
-	// Display back max and min
-  fmt.Println(a)
-	fmt.Println("Biggest number is", max)
-	fmt.Println("Smallest numbers is", min)
-
-// Baseball Stats
-fmt.Println("Baseball Stats")
-	// Define arrays
-	var names [5] string
-	var average [5] float64
-	var slugging [5] float64
-
-	// Store valus into arrays
-	for i := 0; i<= 4; i++ {
-		fmt.Println("Enter a players name")
-		fmt.Scanln(&names[i])
-		fmt.Println("Enter that players batting average")
-		fmt.Scanln(&average[i])
-		fmt.Println("Enter that players slugging percentage")
-		fmt.Scanln(&slugging[i])
-	}
-
-	// Display back stats
-	for n := 0; n <= 4; n++ {
-		fmt.Println("Name:",names[n],"Batting Average:", average[n],"Slugging Percentage:", slugging[n])
-	}
-
-	// Compare batting averages 
-	var small float64 = average[0] 
-	var big float64= average[0]
-
-	for _, value := range average {
-		if value < small {
-		small = value
-		}
-		if value > big {
-		big = value
-		}
-	}
-	fmt.Println("Best batting average is", big)
-	fmt.Println("Worst batting average is", small)
-
-	// Compare slugging percentages
-	var worst float64 = slugging[0] 
-	var best float64= slugging[0]
-
-	for _, total := range slugging {
-		if total < worst {
-		worst = total
-		}
-		if total > best {
-		best = total
-		}
-	}
-	fmt.Println("Best slugging percentage is", best)
-	fmt.Println("Worst slugging percentage is", worst)
-
+    if (total != 0){
+      fmt.Println("Pile One:", pileOne)
+      fmt.Println("Pile Two:", pileTwo)
+      fmt.Println("Total:", total)
+      fmt.Println("Player 2, choose a pile to pull from")
+      fmt.Scanln(&playerTwoPile)
+      fmt.Println("How many do you want to pull?")
+      fmt.Scanln(&playerTwoPull)
+      if (playerTwoPile == 1) {
+        pileOne = pileOne - playerTwoPull
+      } else if (playerTwoPile == 2){
+        pileTwo = pileTwo - playerTwoPull
+      }
+      total = pileOne + pileTwo 
+    } else if (total <= 0) {
+      fmt.Println("Player 1 wins!")
+    }
+  }
 }
