@@ -1,71 +1,24 @@
 // Programmer name: Matthew Davenport
-// Date completed:  4/1/20
-// Description: This program will ask the user for a grade percentage then convert that to a letter grade. Next, it will ask for the users name and year they were born to display back their age.
+// Date completed:  4/9/20
+// Description: This program will take a total amount of seconds then convert them to hours, minutes and seconds
 
 package main
 
 import "fmt"
 
-// Function to find age from year
-func ageFinder(name string, year int){
-  age := 2020 - year
-  fmt.Println(name, "you are", age, "years old!")
-}
-
-// Function to multiply dozens by 12
-func eggCounter(dozens int){
-  totalEggs := dozens * 12
-  fmt.Println("There are a total of", totalEggs, "eggs!")
-}
-
-// Function to swap the inputed numbers
-func swapper(num1 int, num2 int){
-  fmt.Println("Swapped, the numbers are", num2, "and", num1)
-}
-
-// Function to decide letter grade
-func gradeReport(grade int){
-  var letterGrade string
-  if (grade >= 90){
-    letterGrade = "A"
-  } else if (grade >= 80 && grade < 90) {
-    letterGrade = "B"
-  } else if (grade >= 70 && grade < 80) {
-    letterGrade = "C"
-  } else if (grade >= 60 && grade < 70) {
-    letterGrade = "D"
-  } else{
-    letterGrade = "F"
-  }
-  fmt.Println("Your grade is", letterGrade)
+// HoursMinutesSeconds computes the number of hours, minutes,
+// and seconds given a number of seconds.
+// EXAMPLE: 3661 seconds is 1 hours, 1 minutes, 1 seconds
+func HoursMinutesSeconds(inSeconds int) (int, int, int){
+  hours := inSeconds%60
+  minutes := hours%60
+  seconds := minutes%60
+  
+	return hours, minutes, seconds
 }
 
 func main() {
-  // Grade Report
-  var input int
-  fmt.Println("Enter a grade percentage")
-  fmt.Scanln(&input)
-  gradeReport(input)
-
-  // Age
-  var inputName string
-  var inputYear int
-  fmt.Println("Please enter your name")
-  fmt.Scanln(&inputName)
-  fmt.Println("Please enter the year you were born")
-  fmt.Scanln(&inputYear)
-  ageFinder(inputName, inputYear)
-
-  // How many eggs?
-  var inputDozens int
-  fmt.Println("Enter how many dozens of eggs")
-  fmt.Scanln(&inputDozens)
-  eggCounter(inputDozens)
-
-  // Swap
-  var input1, input2 int
-  fmt.Println("Enter 2 numbers")
-  fmt.Scanln(&input1, &input2)
-  fmt.Println("you entered", input1, "and", input2)
-  swapper(input1, input2)
+//call your function
+hours, minutes, seconds := HoursMinutesSeconds(3661)
+fmt.Println(hours, minutes, seconds)
 }
