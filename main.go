@@ -1,49 +1,100 @@
 // Programmer name: Matthew Davenport
-// Date completed:  4/9/20
-// Description: This program will start by finding the distance between 2 points, then will calculate the miles per gallon of a car, then will find average of points obtained and available points, then finally calculate the tip of a bill
+// Date completed:  4/15/20
+// Description: This program will start by asking the user what kind of coffee they want, followed by asking if they want addons and what they want. Then it will run the corresponding function and display back the instructions, addons, and total cost
 
 package main
 
 import "fmt"
 
-// create function to find distance between 2 points
-func distance(x1 float64,y1 float64,x2 float64,y2 float64)(float64){
-  totalDistance := (x2 - x1) + (y2 - y1)
-  return totalDistance
+// Create functions for each type of coffee using parameters for extras and addons
+
+func frappe(extras_ float64, addons_ string){
+  cost_ := 5.25
+  extra_ := extras_ * 1
+  total_ := (cost_ + extra_)
+  instructions := "Prepare espresso then chill, combine espresso with milk, sugar and ice in blender, blend until smooth, then pour and serve"
+  addedInstructions := addons_
+  
+  fmt.Println("Instructions:", instructions)
+  fmt.Println("Addons:", addedInstructions)
+  fmt.Println("Your total cost is", total_)
 }
 
-// create func to divide miles by gallons taking 2 parameters
-func milesPerGallon(milesDriven int, gallonsUsed int)(int){
-  mpg := milesDriven/gallonsUsed
-  return mpg
+func latte(extras_ float64, addons_ string){
+  cost_ := 3.50
+  extra_ := extras_ * 1
+  total_ := (cost_ + extra_)
+  instructions := "Brew espresso, heat milk, combine milk and espresso, top with foam and serve"
+  addedInstructions := addons_
+  
+  fmt.Println("Instructions:", instructions)
+  fmt.Println("Addons:", addedInstructions)
+  fmt.Println("Your total cost is", total_)
 }
 
-// create func to divide points obtained by available points
-func findAverage(totalPoints float64, availablePoints float64)(float64){
-  averagePoints := totalPoints/availablePoints
-  return averagePoints
+func flatWhite(extras_ float64, addons_ string){
+  cost_ := 2.75
+  extra_ := extras_ * 1
+  total_ := (cost_ + extra_)
+  instructions := "Brew espresso, heat milk, combine milk and espresso, top with foam, fold foam and serve"
+  addedInstructions := addons_
+  
+  fmt.Println("Instructions:", instructions)
+  fmt.Println("Addons:", addedInstructions)
+  fmt.Println("Your total cost is", total_)
 }
 
-// create func to multiply total by gratuity
-func tipCalculator(totalSpent float64, gratuity float64)(float64){
-  tip := gratuity * totalSpent
-  return tip
+func cappuccino(extras_ float64, addons_ string){
+  cost_ := 2.50
+  extra_ := extras_ * 1
+  total_ := (cost_ + extra_)
+  instructions := "Brew espresso, heat milk, combine milk and espresso, top with foam and serve"
+  addedInstructions := addons_
+  
+  fmt.Println("Instructions:", instructions)
+  fmt.Println("Addons:", addedInstructions)
+  fmt.Println("Your total cost is", total_)
+}
+
+func macchiato(extras_ float64, addons_ string){
+  cost_ := 3.99
+  extra_ := extras_ * 1
+  total_ := (cost_ + extra_)
+  instructions := "Brew espresso, heat milk, combine milk and espresso, top with foam and serve"
+  addedInstructions := addons_
+  
+  fmt.Println("Instructions:", instructions)
+  fmt.Println("Addons:", addedInstructions)
+  fmt.Println("Your total cost is", total_)
 }
 
 func main() {
-// Distance Calculator
-  totalDistance := distance(20,50,80,87)
-  fmt.Println("Total distance is", totalDistance)
+// Collect user input
+  var input string
+  var extra float64
+  var addons string
+  // ask for user order
+  fmt.Println("What would you like to order?(Frappe, Latte, Flat White, Cappucino, Macchiato)")
+  fmt.Scanln(&input)
+  // ask for any extras
+  fmt.Println("Would you like anything extra? ($1 to add extras; enter 0 if no, 1 if yes)")
+  fmt.Scanln(&extra)
+  // if yes, ask what kind of extras
+  if (extra == 1) {
+    fmt.Println("What would you like to add?")
+    fmt.Scanln(&addons)
+  }
 
-// Miles per gallons
-  mpg := milesPerGallon(87, 12)
-  fmt.Println("Your miles per gallon is", mpg)
-
-// Compute Average 
-  average := findAverage(20,80)
-  fmt.Println("Your average points obtained was", average)
-
-// Tip Calculator
-  tipTotal := tipCalculator(50, .20)
-  fmt.Println("Your tip amount is", tipTotal)
+// Display back instructions and cost
+  if (input == "Frappe"){
+    frappe(extra, addons)
+  } else if (input == "Latte"){
+    latte(extra, addons)
+  } else if (input == "Flat White"){
+    flatWhite(extra, addons)
+  } else if (input == "Cappuccino"){
+    cappuccino(extra, addons)
+  } else {
+    macchiato(extra, addons)
+  }
 }
