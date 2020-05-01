@@ -1,3 +1,9 @@
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Name: Matthew Davenport
+// Date: 5/1/20
+// Description: This program will play a simple game of blackjack, starting by dealing 2 cards to the player and house, then by asking the player if they want more cards until they say no, then finally adding house cards until it is 17 or higher, ending with a comparison of hand values
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 package main
 
 import ( 
