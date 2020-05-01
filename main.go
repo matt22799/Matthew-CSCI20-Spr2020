@@ -1,83 +1,33 @@
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// Name: Matthew Davenport
-// Date: 5/1/20
-// Description: This program will play a simple game of blackjack, starting by dealing 2 cards to the player and house, then by asking the player if they want more cards until they say no, then finally adding house cards until it is 17 or higher, ending with a comparison of hand values
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Programmer name: Matthew Davenport
+// Date completed:  5/1/20
+// Description: This program will create a struct for an animal and then create 2 animal objects using the struct
 
 package main
 
-import ( 
-      "fmt"
-      "math/rand"
-      "time"
-)
+import "fmt"
 
-// create variables for player and house hands
-var playerHand int = 0
-var houseHand int = 0
-var cardValue int
-
-// create function to add a card to players hand when “hit”
-func playerDraw(){
-    rand.Seed(time.Now().UnixNano())
-    cardValue = (rand.Intn(10) + 1)
-    playerHand = playerHand + cardValue
-    fmt.Println("Your hand value is", playerHand)
-}
-// create function to add a card to house's hand until its 17 or more
-func houseDraw(){
-  rand.Seed(time.Now().UnixNano())
-  cardValue = (rand.Intn(10) + 1)
-  houseHand = houseHand + cardValue
-  fmt.Println("House hand value is", houseHand)
+//Create a struct that keeps track of animal and stores its name, age, breakfast hour, and dinner hour.
+type Animal struct {
+  name string
+  age int
+  breakfastHour int 
+  dinnerHour int
 }
 
 func main() {
-  // add 2 cards to player hand and add
-  rand.Seed(time.Now().UnixNano())
-  cardValue = (rand.Intn(10) + 1)
-  playerHand = playerHand + cardValue
-  cardValue = (rand.Intn(10) + 1)
-  playerHand = playerHand + cardValue
-  
-  // add 2 cards to house hand and add
-  cardValue = (rand.Intn(10) + 1)
-  houseHand = houseHand + cardValue
-  cardValue = (rand.Intn(10) + 1)
-  houseHand = houseHand + cardValue
+   //create 2 animal objects that store the appropriate data and then print out the data stored
+   animalA := Animal {}
+   animalA.name = "Princess"
+   animalA.age = 3
+   animalA.breakfastHour = 8
+   animalA.dinnerHour = 5
 
-  // display back current hands
-  fmt.Println("Your hand value is",playerHand)
-  fmt.Println("The house's hand value is",houseHand) 
+   animalB := Animal {}
+   animalB.name = "Tony"
+   animalB.age = 6
+   animalB.breakfastHour = 6
+   animalB.dinnerHour = 4
 
-  // loop for players turn; if hit, run playerDraw; if stay, display final value
-  var choice string
-  if (playerHand <= 21){
-    for playerHand < 21 {
-      fmt.Println("Do you want to hit or stay?")
-      fmt.Scanln(&choice)
-      if (choice == "hit"){
-        playerDraw()
-      } else {
-        fmt.Println("Your final hand value is", playerHand)
-        break
-      }
-    }
-  }
-
-  // loop for house's turn; ends when value is >= 17
-  for houseHand < 17 {
-    houseDraw()
-  }
-  // display house's final value
-  fmt.Println("The house's final hand value is", houseHand)
-
-  // compare player hand to house hand
-  if (playerHand > 21 || playerHand < houseHand && houseHand <= 21){
-    fmt.Println("You Lose!")
-  } else if (houseHand > 21 || houseHand < playerHand && playerHand <= 21){
-    fmt.Println("You Win!")
-  } else {
-    fmt.Print("Draw!")
-  }
+   fmt.Println(animalA)
+   fmt.Println(animalB)
 }
