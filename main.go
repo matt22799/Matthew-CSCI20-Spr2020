@@ -1,33 +1,45 @@
 // Programmer name: Matthew Davenport
-// Date completed:  5/1/20
-// Description: This program will create a struct for an animal and then create 2 animal objects using the struct
+// Date completed:  2/18/20
+// Description: This program will ask the user for a number then compare it
+//              to the computers guess and decides if the guess was right
 
 package main
 
-import "fmt"
-
-//Create a struct that keeps track of animal and stores its name, age, breakfast hour, and dinner hour.
-type Animal struct {
-  name string
-  age int
-  breakfastHour int 
-  dinnerHour int
-}
+import (
+    "fmt"
+    "math/rand"
+    //"time"
+) //adding the ability to do random numbers
 
 func main() {
-   //create 2 animal objects that store the appropriate data and then print out the data stored
-   animalA := Animal {}
-   animalA.name = "Princess"
-   animalA.age = 3
-   animalA.breakfastHour = 8
-   animalA.dinnerHour = 5
+    //create a variable for count\
+    var count int
 
-   animalB := Animal {}
-   animalB.name = "Tony"
-   animalB.age = 6
-   animalB.breakfastHour = 6
-   animalB.dinnerHour = 4
+    //ask the user to enter a max range for the guessing game and store that value in variable max.
+    var max int
+    fmt.Println("Please enter a a max range")
+    fmt.Scanln(&max)
+    
+    //this next line creates a random number from 1 to that guess for the computer to know.  You can test this by printing out the variable computerGuess
+    var computerGuess = rand.Intn(max)
 
-   fmt.Println(animalA)
-   fmt.Println(animalB)
+    //ask the user to enter a guess for the computer number
+    var userGuess int
+    fmt.Println("Please enter a numerical guess")
+    fmt.Scanln(&userGuess)
+
+    //create a loop that compares the computerGuess to the userGuess while they are NOT equal go into the loop
+    for userGuess != computerGuess{
+      //increase the count by 1
+      count ++
+      //tell the user that the guessed incorrect
+      fmt.Println("Wrong!")
+      //ask the user to enter a new guess for the computer number
+      fmt.Println("Enter a new guess")
+      fmt.Scan(&userGuess)
+    }   
+    
+    //print out that the user got the answer correctly and how many guesses it took (the count)
+    fmt.Println("Correct! That took you", count, "tries!")
+
 }
