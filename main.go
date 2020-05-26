@@ -1,48 +1,33 @@
+// Programmer name: Matthew Davenport
+// Date completed:  5/1/20
+// Description: This program will create a struct for an animal and then create 2 animal objects using the struct
+
 package main
 
 import "fmt"
 
+//Create a struct that keeps track of animal and stores its name, age, breakfast hour, and dinner hour.
+type Animal struct {
+  name string
+  age int
+  breakfastHour int 
+  dinnerHour int
+}
+
 func main() {
-// Average Quiz Score
-  total := 0
-  numGrades := 0
-  var grade int
+   //create 2 animal objects that store the appropriate data and then print out the data stored
+   animalA := Animal {}
+   animalA.name = "Princess"
+   animalA.age = 3
+   animalA.breakfastHour = 8
+   animalA.dinnerHour = 5
 
-for grade > -1 {
-    fmt.Println("Enter a grade from 0-100")
-    fmt.Scanln(&grade)
+   animalB := Animal {}
+   animalB.name = "Tony"
+   animalB.age = 6
+   animalB.breakfastHour = 6
+   animalB.dinnerHour = 4
 
-    if (grade > -1) {
-      total = total + grade
-      numGrades++
-    } else if (grade == -1){
-      average := total/numGrades
-      fmt.Println("Total Average Grade:", average)
-
-    } else {
-      fmt.Println("Invalid Response")
-    }
-  }
-
-// Obnoxious Child
-  // collect value
-  var age int
-  fmt.Println("How old is the child?")
-  fmt.Scanln(&age)
-
-  // start loop based on value
-  for i := 0; i < age; i++{
-  fmt.Println("Are we there yet?")
-  }  
-
-// Song Lyrics 
-  // Ask for number of repeats
-  var repeat int
-  fmt.Println("How many times do you want to hear the song?")
-  fmt.Scanln(&repeat)
-
-  // start loop based on value
-  for i := 0; i < repeat; i++{
-  fmt.Println("We all live in a yellow submarine, a yellow submarine, a yellow submarine")
-  }  
+   fmt.Println(animalA)
+   fmt.Println(animalB)
 }
