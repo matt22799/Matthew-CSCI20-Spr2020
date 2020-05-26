@@ -1,45 +1,71 @@
-// Programmer name: Matthew Davenport
-// Date completed:  2/18/20
-// Description: This program will ask the user for a number then compare it
-//              to the computers guess and decides if the guess was right
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// Name: Matthew Davenport
+// Date: 5/1/20
+// Description: This program will play a simple game of blackjack, starting by dealing 2 cards to the player and house, then by asking the player if they want more cards until they say no, then finally adding house cards until it is 17 or higher, ending with a comparison of hand values
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 package main
 
-import (
-    "fmt"
-    "math/rand"
-    //"time"
-) //adding the ability to do random numbers
+import ( 
+      "fmt"
+      "math/rand"
+      "time"
+)
 
-func main() {
-    //create a variable for count\
-    var count int
+// function to create a random card value
+func randCard()(int){
+  rand.Seed(time.Now().UnixNano())
+  cardValue_ := (rand.Intn(10) + 1)
+  return cardValue_
+}
 
-    //ask the user to enter a max range for the guessing game and store that value in variable max.
-    var max int
-    fmt.Println("Please enter a a max range")
-    fmt.Scanln(&max)
-    
-    //this next line creates a random number from 1 to that guess for the computer to know.  You can test this by printing out the variable computerGuess
-    var computerGuess = rand.Intn(max)
+// function to set starting value of hands
+func startValue()(int){
+  startValue_ := randCard() + randCard()
+  return startValue_
+}
 
-    //ask the user to enter a guess for the computer number
-    var userGuess int
-    fmt.Println("Please enter a numerical guess")
-    fmt.Scanln(&userGuess)
+// function to draw a card
+func drawCard(currentValue_ int)(int){
+  newValue_ := currentValue_ + randCard()
+  return newValue_
+}
 
-    //create a loop that compares the computerGuess to the userGuess while they are NOT equal go into the loop
-    for userGuess != computerGuess{
-      //increase the count by 1
-      count ++
-      //tell the user that the guessed incorrect
-      fmt.Println("Wrong!")
-      //ask the user to enter a new guess for the computer number
-      fmt.Println("Enter a new guess")
-      fmt.Scan(&userGuess)
-    }   
-    
-    //print out that the user got the answer correctly and how many guesses it took (the count)
-    fmt.Println("Correct! That took you", count, "tries!")
+func main(){
+  // give 2 cards to player to start
+  playerValue := startValue()
+  fmt.Println("Your starting value:", playerValue)
+  // give 2 cards to house to start
+  houseValue := startValue()
+  fmt.Println("the house's starting value:", houseValue)
 
+  // loop for player's turn; if hit, run drawCard; if stay, display final value
+  var choice string
+  for playerValue <= 21 {
+    fmt.Println("Would you like to hit or stay?")
+    fmt.Scanln(&choice)
+    if (choice == "hit"){
+      playerValue = drawCard(playerValue)
+      fmt.Println("Your current value is", playerValue)
+    } else{
+        break
+    }
+  }
+    fmt.Println("Your final value is", playerValue)  
+
+  // loop for house's turn; ends when value is >= 17
+  for houseValue < 17 {
+    houseValue = drawCard(houseValue)
+    fmt.Println("The house's hand value stands at", houseValue)
+  }
+  fmt.Println("The house's final value stands at", houseValue)
+
+  // compare player's hand to house's hand
+  if (playerValue > 21 || playerValue < houseValue && houseValue <= 21){
+    fmt.Println("You Lose!")
+  } else if (houseValue > 21 || houseValue < playerValue && playerValue <= 21){
+    fmt.Println("You Win!")
+  } else {
+    fmt.Print("Draw!")
+  }
 }
